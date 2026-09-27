@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block contenuto %}
+<h1>Richiesta misura</h1>
+
+{% if errore %}<p class="errore">{{ errore }}</p>{% endif %}
+
+<!-- Il browser invia i campi a /risultati con POST. Nessun JavaScript. -->
+<form action="/risultati" method="post">
+  <label>Campione
+    <select name="campione">
+      <option>Rame</option>
+      <option>Silicio</option>
+      <option>Germanio</option>
+    </select>
+  </label>
+
+  <label>Energia minima [keV]
+    <input type="number" name="e_min" value="0" step="any" required>
+  </label>
+
+  <label>Energia massima [keV]
+    <input type="number" name="e_max" value="10" step="any" required>
+  </label>
+
+  <label>Numero di punti
+    <input type="number" name="n_punti" value="50" min="2" max="1000" required>
+  </label>
+
+  <label>
+    <input type="checkbox" name="mostra_tabella" value="true" checked>
+    Mostra anche la tabella dei dati
+  </label>
+
+  <button type="submit">Invia richiesta</button>
+</form>
+{% endblock %}

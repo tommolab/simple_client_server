@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block contenuto %}
+<h1>Risultati: {{ campione }}</h1>
+<p>Intervallo {{ e_min }}–{{ e_max }} keV</p>
+
+<img src="data:image/png;base64,{{ grafico }}" alt="Spettro di {{ campione }}">
+
+<h2>Riepilogo</h2>
+<table>
+  <tr><th>Conteggi totali</th><td>{{ totale }}</td></tr>
+  <tr><th>Massimo</th><td>{{ "%.1f"|format(massimo) }}</td></tr>
+  <tr><th>Energia del picco [keV]</th><td>{{ "%.2f"|format(e_picco) }}</td></tr>
+</table>
+
+{% if righe %}
+<h2>Dati</h2>
+<table>
+  <tr><th>Energia [keV]</th><th>Conteggi</th></tr>
+  {% for e, c in righe %}
+  <tr><td>{{ e }}</td><td>{{ c }}</td></tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<p><a href="/">Nuova richiesta</a></p>
+{% endblock %}
