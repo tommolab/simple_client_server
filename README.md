@@ -6,6 +6,16 @@ Il browser invia un normale form HTML, il server chiama (in questo esempio, simu
 servizio interno, genera un grafico con matplotlib e restituisce una pagina HTML con
 l'immagine incorporata in base64 e, se richiesto, una tabella dei dati.
 
+## Screenshot
+
+**Pagina 1 — form di input**
+
+![Form di input](docs/form.png)
+
+**Pagina 2 — risultati con grafico e riepilogo**
+
+![Pagina dei risultati](docs/risultati.png)
+
 ## Struttura
 
 ```
@@ -14,6 +24,7 @@ templates/
   base.html         # layout comune
   form.html         # pagina 1: form di input
   risultati.html    # pagina 2: grafico e tabella
+docs/               # screenshot usati in questo README
 requirements.txt
 ```
 
